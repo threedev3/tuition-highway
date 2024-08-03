@@ -92,8 +92,8 @@ const Tutors = () => {
               </div>
 
               <div className="flex gap-4 items-center">
-                <img src={twitterIcon} alt="" />
-                <img src={linkedInIcon} alt="" />
+                <img src={twitterIcon} alt="" className="cursor-pointer" />
+                <img src={linkedInIcon} alt="" className="cursor-pointer" />
               </div>
             </div>
           ))}

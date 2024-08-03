@@ -76,13 +76,13 @@ const Reasons = () => {
           <CustomButton text="Get A Free Demo" />
         </div>
 
-        <div className="w-full bg-gradient-to-r from-startgrad to-endGrad rounded-xl flex flex-row justify-between items-center gap-4 px-12 pr-24 h-60 mt-12">
-          <div className="flex flex-col gap-4 py-6 max-w-3xl">
+        <div className="w-full bg-gradient-to-r from-startgrad to-endGrad rounded-xl lg:flex lg:flex-row lg:justify-between lg:items-center lg:gap-4 flex flex-col gap-4 px-12 lg:pr-24  mt-12">
+          <div className="flex flex-col gap-4 py-6 lg:max-w-2xl max-w-full">
             <h3 className="text-white text-2xl">
               Nurturing Academic Excellence
             </h3>
 
-            <p className="text-white">
+            <p className="text-white sm:text-base text-sm">
               In today's competitive academic landscape, classroom learning
               isn't always enough. At Tuition Highway, we provide the one-on-one
               attention and tailored support your child needs to truly excel.
