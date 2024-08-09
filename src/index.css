@@ -143,6 +143,62 @@ h6 {
   border-right: 3px solid #f46322;
 } */
 
+@keyframes move1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, -10px);
+  }
+}
+
+@keyframes move2 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-10px, 10px);
+  }
+}
+
+@keyframes move3 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-10px, -10px);
+  }
+}
+
+@keyframes move4 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, 10px);
+  }
+}
+
+.animate-move1 {
+  animation: move1 3s ease-in-out infinite;
+}
+
+.animate-move2 {
+  animation: move2 3s ease-in-out infinite;
+}
+
+.animate-move3 {
+  animation: move3 3s ease-in-out infinite;
+}
+
+.animate-move4 {
+  animation: move4 3s ease-in-out infinite;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

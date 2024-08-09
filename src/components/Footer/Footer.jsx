@@ -12,7 +12,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="bg-footerBg relative py-20 px-6 max-w-full overflow-x-hidden">
+    <div className="bg-headingColor relative py-20 px-6 max-w-full overflow-x-hidden">
       <div className="max-w-[1400px] mx-auto flex flex-col justify-center gap-6">
         <div className="md:flex md:flex-row md:justify-between md:items-center md:gap-4 flex flex-col gap-8 border-b-2 border-b-footerBorder pb-8">
           <div className="flex flex-col items-start gap-6">
@@ -82,7 +82,7 @@ const Footer = () => {
                 placeholder="Enter Your Email"
                 className="bg-transparent border-2 border-footerBorder rounded-full sm:py-2 sm:px-6 py-2 px-3 focus:outline-none text-white w-[80%] sm:text-base text-sm sm:placeholder:text-base placeholder:text-sm "
               />
-              <button className="bg-gradient-to-b from-startgrad to-endGrad sm:py-2 sm:px-6 py-2 px-3 sm:text-base text-sm rounded-full text-white">
+              <button className="bg-gradient-to-b from-orangeHeading to-toOrange sm:py-2 sm:px-6 py-2 px-3 sm:text-base text-sm rounded-full text-white">
                 Subscribe
               </button>
             </div>

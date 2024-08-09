@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import icon1 from "../../assets/img/icon1.png";
 import icon2 from "../../assets/img/icon2.png";
-import notes from "../../assets/img/notes.png";
+import elearning from "../../assets/img/elearning.png";
 import CustomButton from "../CustomButton/CustomButton";
-import aGrade from "../../assets/img/agrade.png";
-import { ChevronRightIcon } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
 
-const Reasons = () => {
+const Reasons = ({ demoRef }) => {
   const reasons = [
     {
       title: "Qualified Expert Tutors",
@@ -30,18 +29,51 @@ const Reasons = () => {
     },
   ];
 
+  const sections = {
+    Demo: demoRef,
+  };
+
+  const handleNavClick = (section) => {
+    const targetRef = sections[section];
+
+    if (targetRef && targetRef.current) {
+      window.scrollTo({
+        top: targetRef.current.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <div className="relative py-20 px-6 max-w-full">
-      <div className="absolute top-10 right-10 w-24 z-10">
-        <img src={notes} alt="" className="object-contain" />
-      </div>
+    <div className="relative md:py-20 py-12 px-6 max-w-full">
+      <div className="absolute inset-0 -top-4 bg-white transition-all duration-500 ease-in-out blur-md "></div>
+
+      {/* Animated Icon */}
+      <motion.div
+        className="absolute lg:top-6 lg:right-6 sm:top-4 sm:right-4 top-2 right-2 md:w-24 sm:w-16 w-12 z-10"
+        initial={{ opacity: 0, y: -50, scale: 0.5 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={true}
+        transition={{
+          type: "spring",
+          stiffness: 70,
+          damping: 10,
+          duration: 0.6,
+          delay: 0.2,
+        }}
+      >
+        <img src={elearning} alt="" className="object-contain" />
+      </motion.div>
       <div className="relative z-10 max-w-[1400px] mx-auto flex flex-col gap-12 ">
-        <div className="flex flex-col gap-6 items-center text-headingColor ">
-          <h3 className="lg:text-5xl sm:text-4xl text-4xl font-bold tracking-wide text-center">
-            Why Tuition Highway?
+        <div className="flex flex-col sm:gap-6 gap-4 items-center text-headingColor ">
+          <h3 className="lg:text-[46px] sm:text-4xl text-3xl font-bold tracking-wide text-center">
+            Your Fast Track to Top Grades
           </h3>
-          <p className="lg:text-2xl sm:text-lg text-base text-center max-w-4xl mx-auto">
-            5 Compelling Reasons to Join Tuition Highway
+          <p className="lg:text-xl sm:text-lg text-base text-center max-w-5xl mx-auto font-medium">
+            Tuition Highway: Where expert tutors, personalized learning, and
+            flexible scheduling meet comprehensive curriculum coverage. Our
+            proven approach fast-tracks students to A* grades across IGCSE,
+            A-levels, American, and IB curriculums.
           </p>
         </div>
 
@@ -49,7 +81,7 @@ const Reasons = () => {
           {reasons.map((item, index) => (
             <div
               key={index}
-              className="p-6 bg-white shadow-lg rounded-[30px] flex flex-col gap-6 min-h-48  hover:shadow-2xl transition-shadow duration-300 group"
+              className="p-6 bg-white shadow-lg rounded-[30px] flex flex-col gap-6 hover:shadow-2xl transition-shadow duration-300 group"
             >
               <div>
                 <img
@@ -59,7 +91,7 @@ const Reasons = () => {
                 />
               </div>
               <div>
-                <p className="text-xl text-headingColor font-semibold">
+                <p className="sm:text-xl text-lg text-headingColor font-semibold">
                   {item.title}
                 </p>
               </div>
@@ -72,13 +104,18 @@ const Reasons = () => {
           ))}
         </div>
 
-        <div className="flex justify-center">
+        <motion.div
+          className="mx-auto cursor-pointer"
+          onClick={() => handleNavClick("Demo")}
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring", damping: 17 }}
+        >
           <CustomButton text="Get A Free Demo" />
-        </div>
+        </motion.div>
 
-        <div className="w-full bg-gradient-to-r from-startgrad to-endGrad rounded-xl lg:flex lg:flex-row lg:justify-between lg:items-center lg:gap-4 flex flex-col gap-4 px-12 lg:pr-24  mt-12">
-          <div className="flex flex-col gap-4 py-6 lg:max-w-2xl max-w-full">
-            <h3 className="text-white text-2xl">
+        {/* <div className="w-full bg-gradient-to-r from-startgrad to-endGrad rounded-xl lg:flex lg:flex-row lg:justify-between lg:items-center lg:gap-4 flex flex-col gap-8 py-6 sm:px-12 px-6 lg:pr-24 lg:mt-12 mt-4">
+          <div className="flex flex-col gap-4  lg:max-w-2xl max-w-full">
+            <h3 className="text-white lg:text-3xl sm:text-2xl text-xl">
               Nurturing Academic Excellence
             </h3>
 
@@ -87,20 +124,23 @@ const Reasons = () => {
               isn't always enough. At Tuition Highway, we provide the one-on-one
               attention and tailored support your child needs to truly excel.
               Watch as their confidence grows, grades improve, and future
-              opportunities expand.E
+              opportunities expand.
             </p>
             <div className="">
-              <button className="bg-white py-2 px-6 rounded-full font-bold flex gap-1 items-center">
+              <button
+                className="bg-white py-2 px-6 rounded-full sm:text-base text-sm font-bold flex gap-1 items-center"
+                onClick={() => handleNavClick("Demo")}
+              >
                 Free Demo
-                <ChevronRightIcon className="w-5 text-[#2165EE] font-bold" />
+                <ChevronRightIcon className="sm:w-5 w-4 text-[#2165EE] font-bold" />
               </button>
             </div>
           </div>
 
-          <div>
-            <img src={aGrade} alt="" className="w-48 object-cover" />
+          <div className="lg:block flex md:justify-end justify-start">
+            <img src={aGrade} alt="" className="w-36 object-cover" />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

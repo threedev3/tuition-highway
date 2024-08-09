@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import contactImg from "../../assets/img/contactimg.png";
+import heroIcon2 from "../../assets/img/heroIcon2.png";
+import { motion } from "framer-motion";
 
 const ContactForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -8,15 +10,34 @@ const ContactForm = () => {
     if (currentStep < 2) setCurrentStep(currentStep + 1);
   };
 
-  const handlePrev = () => {
-    if (currentStep > 1) setCurrentStep(currentStep - 1);
-  };
+  // const handlePrev = () => {
+  //   if (currentStep > 1) setCurrentStep(currentStep - 1);
+  // };
 
   return (
-    <div className="py-20 px-6 max-w-full relative">
+    <div className="sm:py-20 py-12 px-6 max-w-full relative">
+      <motion.div
+        className="absolute md:top-20 md:left-16 sm:top-8 sm:left-8 top-2 left-4  z-10"
+        initial={{ opacity: 0, y: -50, scale: 0.5 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={true}
+        transition={{
+          type: "spring",
+          stiffness: 70,
+          damping: 10,
+          duration: 0.6,
+          delay: 0.2,
+        }}
+      >
+        <img
+          src={heroIcon2}
+          alt=""
+          className="md:w-16 sm:w-16 w-10 object-contain"
+        />
+      </motion.div>
       <div className="max-w-[1400px] mx-auto flex flex-col sm:gap-12 gap-8">
         <div className="flex flex-col gap-6 items-center text-headingColor ">
-          <h3 className="lg:text-5xl sm:text-4xl text-3xl font-bold tracking-wide text-center">
+          <h3 className="xl:text-[46px] xl:leading-tight md:text-4xl sm:text-3xl text-3xl font-bold tracking-wide text-center sm:mt-0 mt-2">
             Request a Free{" "}
             <span className="text-orangeHeading font-MontserratBold">Demo</span>
           </h3>
@@ -27,7 +48,7 @@ const ContactForm = () => {
 
         <div className="lg:flex lg:flex-row lg:justify-between lg:items-center lg:gap-8 flex flex-col items-center gap-12 px-4">
           <div className="w-auto">
-            <img src={contactImg} alt="" className="object-cover" />
+            <img src={contactImg} alt="" className="w-[500px] object-cover" />
           </div>
 
           {/* Contact Form will be displayed here  */}

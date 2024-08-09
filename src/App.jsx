@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import "./App.css";
 import Choose from "./components/Choose/Choose";
 import ContactForm from "./components/ContactForm/ContactForm";
@@ -14,19 +15,23 @@ import Tutors from "./components/Tutors/Tutors";
 import Working from "./components/Working/Working";
 
 function App() {
+  const demoRef = useRef(null);
+
   return (
     <>
-      <Navbar />
+      <Navbar demoRef={demoRef} />
       <HeroSection />
-      <Reasons />
+      <Reasons demoRef={demoRef} />
+      <TutorNumbers />
       <Subjects />
+      <FreeDemo demoRef={demoRef} />
       <Testimonials />
       <Working />
-      <FreeDemo />
       <Tutors />
-      <TutorNumbers />
       {/* <Choose /> */}
-      <ContactForm />
+      <div ref={demoRef}>
+        <ContactForm demoRef={demoRef} />
+      </div>
       <Faq />
       <Footer />
     </>

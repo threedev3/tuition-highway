@@ -52,13 +52,13 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="relative py-20 px-6 max-w-full overflow-x-hidden">
+    <div className="relative md:py-20 py-10 px-6 max-w-full overflow-x-hidden">
       <div className="absolute inset-0 bg-heroBg transition-all duration-500 ease-in-out blur-md "></div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto md:flex md:flex-row md:items-center md:justify-between md:gap-10 flex flex-col gap-10 items-center justify-center backdrop-blur-sm">
+      <div className="relative z-10 max-w-[1400px] mx-auto md:flex md:flex-row md:items-center md:justify-between md:gap-10 flex flex-col gap-10 items-center justify-center ">
         <div className="flex flex-col gap-8 max-w-[500px]">
           <div>
-            <h3 className="lg:text-[52px] text-4xl leading-none text-headingColor">
+            <h3 className="xl:text-[46px] xl:leading-tight md:text-4xl sm:text-3xl text-3xl leading-none text-headingColor">
               Testimonials and{" "}
               <span className="font-MontserratBold text-orangeHeading">
                 Success
@@ -79,7 +79,7 @@ const Testimonials = () => {
           <div className="slider-container w-auto cursor-pointer ">
             <Slider ref={sliderRef} {...settings}>
               {testimonials.map((item, index) => (
-                <div className="">
+                <div className="" key={index}>
                   <div
                     className="flex flex-col gap-6 w-[300px] md:p-0 p-6"
                     key={index}
@@ -87,7 +87,7 @@ const Testimonials = () => {
                     <div className="flex items-center gap-4">
                       <div className="bg-[#00D1FF] w-10 h-10 rounded-full"></div>
                       <div className="">
-                        <h3 className="text-headingColor text-2xl">
+                        <h3 className="text-headingColor md:text-2xl text-xl">
                           {item.name}
                         </h3>
                       </div>
